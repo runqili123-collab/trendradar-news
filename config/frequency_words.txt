@@ -1,258 +1,701 @@
-# ═══════════════════════════════════════════════════════════════
-#                    TrendRadar 频率词配置文件
-#                         Version: 1.1.0
-# ═══════════════════════════════════════════════════════════════
-
-# 可视化配置编辑器地址: https://sansan0.github.io/TrendRadar/
-#
-# 凡是左侧有 # 的都是仅供阅读的说明性文字
-#
-# 这个文件用来设置你想关注的新闻关键词。
-# 系统会自动抓取包含这些关键词的热榜新闻推送给你。
-#
-# 文件分为两个区域：
-#   [GLOBAL_FILTER]  - 全局过滤区：排除不想看的内容
-#   [WORD_GROUPS]    - 词组定义区：设置想关注的关键词
-#
-# ═══════════════════════════════════════════════════════════════
-
-
-# ───────────────────────────────────────────────────────────────
-#                        全局过滤区
-# ───────────────────────────────────────────────────────────────
-# 在这里写入你不想看到的词，每行一个。
-# 包含这些词的新闻会被自动排除，不会出现在推送中。
-#
-# 使用方法：
-#   震惊              直接写词，包含"震惊"的新闻会被过滤
-#   /赌博|博彩/       用 /.../ 包裹可以匹配多个词（用 | 分隔）
+# TrendRadar 关键词配置文件
+# 推送中南美政治/经济/汽车/用户声音相关新闻
+# 中文 + 西班牙语 + 英语 三语版
+# 聚焦地区：加勒比、委内瑞拉、哥伦比亚、秘鲁、厄瓜多尔
 
 [GLOBAL_FILTER]
-# 过滤标题党
-震惊
-
-
-
-# ───────────────────────────────────────────────────────────────
-#                        词组定义区
-# ───────────────────────────────────────────────────────────────
-# 在这里写入你想关注的关键词。
-# 每个词组用空行分隔，同一词组内的关键词是"或"的关系。
-#
-# ┌─────────────────────────────────────────────────────────────┐
-# │                      语法总览（快速参考）                      │
-# └─────────────────────────────────────────────────────────────┘
-#
-# 关键词语法：
-#   关键词            普通关键词，标题包含即匹配
-#   /正则/            正则表达式匹配（自动忽略大小写）
-#   关键词 => 别名    给关键词指定显示别名
-#   [组别名]          词组第一行，给整组指定别名
-#   +关键词           必须词，所有必须词都要匹配才算匹配
-#   !关键词           过滤词，匹配则排除该条新闻（仅限当前词组）
-#   @数字             限制该词组最多显示多少条
-#
-# 显示名称优先级：
-#   1. 有组别名 → 显示组别名
-#   2. 没有组别名 → 显示各行别名拼接（用 " / " 连接）
-#   3. 没有别名 → 显示关键词本身
-#
-#
-# ┌─────────────────────────────────────────────────────────────┐
-# │                      基础用法（推荐新手）                      │
-# └─────────────────────────────────────────────────────────────┘
-#
-# 1. 最简单：直接写关键词
-#    ────────────────────
-#    华为
-#
-#    效果：匹配所有包含"华为"的新闻
-#
-#
-# 2. 多个关键词归为一组
-#    ────────────────────
-#    华为
-#    鸿蒙
-#    任正非
-#
-#    效果：匹配包含"华为"或"鸿蒙"或"任正非"的新闻，统一显示为"华为 / 鸿蒙 / 任正非"
-#
-#
-# 3. 给词组起个名字（推荐）
-#    ────────────────────
-#    [华为]
-#    华为
-#    鸿蒙
-#    任正非
-#
-#    效果：同上，但显示名称为"华为"（更简洁）
-#
-#
-# ┌─────────────────────────────────────────────────────────────┐
-# │                      进阶用法（可选）                         │
-# └─────────────────────────────────────────────────────────────┘
-#
-# 4. 用正则表达式匹配多个词（一行搞定）
-#    ────────────────────
-#    /华为|鸿蒙|任正非/ => 华为
-#
-#    效果：匹配包含"华为"或"鸿蒙"或"任正非"的新闻，显示为"华为"
-#    说明：/.../ 里用 | 分隔多个词，=> 后面是显示名称
-#
-#    💡 不懂正则？问 AI：
-#       "帮我写一个正则表达式，匹配包含'华为'或'鸿蒙'或'任正非'的文本，
-#        格式要求：/正则/ => 显示名称"
-#
-#
-# 5. 精确匹配英文单词（避免误匹配）
-#    ────────────────────
-#    /\bAI\b/i => AI
-#
-#    说明：\b 表示单词边界，避免匹配到 "MAIL" 中的 "AI"
-#          /i 表示忽略大小写，"ai"、"AI"、"Ai" 都能匹配
-#
-#    💡 不懂正则？问 AI：
-#       "帮我写一个正则表达式，精确匹配英文单词'AI'（不匹配 MAIL 中的 AI），
-#        忽略大小写，格式要求：/正则/i => 显示名称"
-#
-#
-# 6. 排除特定内容
-#    ────────────────────
-#    [苹果公司]
-#    苹果
-#    !水果
-#    !果园
-#
-#    效果：匹配"苹果"但排除包含"水果"或"果园"的新闻
-#    说明：! 开头的词表示"排除"
-#
-#
-# 7. 限制显示条数
-#    ────────────────────
-#    [科技新闻]
-#    科技
-#    @5
-#
-#    效果：最多显示 5 条匹配的新闻
-#    说明：@数字 表示限制条数
-#
-#
-# 8. 必须同时包含多个词
-#    ────────────────────
-#    +苹果
-#    +发布会
-#
-#    效果：必须同时包含"苹果"和"发布会"才匹配
-#    说明：+ 开头的词表示"必须包含"
-#
-# ───────────────────────────────────────────────────────────────
+!广告
+!营销
+!推广
+!商城
+!红包
+!美女
+!明星
+!八卦
+!娱乐
+!体育
+!足球
+!篮球
+!游戏
+!综艺
+!色情
+!赌博
 
 [WORD_GROUPS]
 
-# ═══════════════════════════════════════════════════════════════
-#                         企业与品牌
-# ═══════════════════════════════════════════════════════════════
+# ==================== 一、政治 ====================
 
-/胖东来|于东来/ => 胖东来
+[委内瑞拉政治]
+委内瑞拉
+Venezuela
+马杜罗
+Maduro
+瓜伊多
+Guaidó
+委内瑞拉危机
+crisis en Venezuela
+Venezuela crisis
+查韦斯
+Chávez
+国民议会
+Asamblea Nacional
+National Assembly
+制宪大会
+Constituyente
+反对派
+oposición
+opposition
+临时总统
+presidente interino
+interim president
+尼古拉斯
+Nicolás
+德尔西
+Delcy
+罗德里格斯
+Rodríguez
+卡贝略
+Cabello
+Tareck
+米拉弗洛雷斯
+Miraflores
+加拉加斯
+Caracas
+马拉开波
+Maracaibo
+玻利瓦尔
+Bolívar
+PDVSA
+石油币
+petro
+crypto
+制裁
+sanciones
+sanctions
+选举
+elección
+election
+政权
+régimen
+regime
 
-/深度求索|幻方量化|梁文锋|\bDeepSeek\b/ => DeepSeek
+[哥伦比亚政治]
+哥伦比亚
+Colombia
+佩特罗
+Petro
+哥伦比亚总统
+presidente de Colombia
+杜克
+Duque
+乌里韦
+Uribe
+桑托斯
+Santos
+ELN
+FARC
+哥武
+抗议
+protesta
+土地改革
+reforma agraria
+land reform
+波哥大
+Bogotá
+麦德林
+Medellín
+卡利
+Cali
+和平协议
+acuerdo de paz
+peace agreement
+游击队
+guerrilla
+paramilitares
+准军事组织
+贩毒
+narcotráfico
+drug trafficking
 
-/华为|任正非|余承东|鸿蒙|海思|昇腾|鲲鹏|\bHUAWEI\b|\bHarmonyOS\b|\bHiSilicon\b/ => 华为
+[秘鲁政治]
+秘鲁
+Perú
+Peru
+博卢阿特
+Boluarte
+秘鲁总统
+presidenta de Perú
+卡斯蒂略
+Castillo
+藤森
+Fujimori
+国会
+Congreso
+Congress
+利马
+Lima
+库斯科
+Cusco
+政治危机
+crisis política
+political crisis
+弹劾
+juicio político
+impeachment
+解散国会
+disolución del Congreso
+dissolution of Congress
+抗议
+manifestación
+demonstration
+玻利瓦尔
+Bolívar
 
-/比亚迪|王传福|方程豹|腾势|仰望|弗迪|刀片电池|云辇|\bBYD\b|\bDenza\b|\bYangwang\b/ => 比亚迪
+[厄瓜多尔政治]
+厄瓜多尔
+Ecuador
+拉索
+Lasso
+诺沃亚
+Noboa
+厄瓜多尔总统
+presidente de Ecuador
+科雷亚
+Correa
+莫雷诺
+Moreno
+基多
+Quito
+瓜亚基尔
+Guayaquil
+国民代表大会
+Asamblea Nacional
+安全危机
+crisis de seguridad
+security crisis
+监狱暴动
+motines carcelarios
+prison riots
+黑帮
+pandillas
+gangs
+武装部队
+fuerzas armadas
+armed forces
 
-/大疆|汪滔|灵眸|如影|\bDJI\b|\bRoboMaster\b|\bMavic\b|\bZenmuse\b/ => 大疆
+[加勒比政治]
+加勒比
+Caribe
+Caribbean
+CARICOM
+加共体
+海地
+Haití
+Haiti
+太子港
+Puerto Príncipe
+Port-au-Prince
+古巴
+Cuba
+哈瓦那
+La Habana
+多米尼加
+República Dominicana
+牙买加
+Jamaica
+特立尼达
+Trinidad
+巴哈马
+Bahamas
+拿骚
+Nassau
+飓风
+huracán
+hurricane
+地震
+terremoto
+earthquake
+殖民
+colonial
+independencia
+independence
+援助
+ayuda
+aid
+联合国维和
+ONU paz
+UN peacekeeping
 
-/宇树|王兴兴|\bUnitree\b/ => 宇树机器人
+[区域政治组织]
+拉美
+América Latina
+Latin America
+南美
+Sudamérica
+South America
+中美洲
+Centroamérica
+Central America
+美洲国家组织
+OEA
+OAS
+拉共体
+CELAC
+南共市
+Mercosur
+太平洋联盟
+Alianza del Pacífico
+金砖
+BRICS
+中国-拉美
+China-América Latina
+中拉关系
+relaciones China-Latinoamérica
+一带一路
+Belt and Road
+Franja y Ruta
+美国-拉美
+EE.UU.-América Latina
+US-Latin America
+欧盟-拉美
+UE-América Latina
+EU-LAC
+联合国
+ONU
+UN
+美洲开发银行
+BID
+IDB
 
-/智元|灵犀|稚晖君|彭志辉|AgiBot/ => 智元机器人
-/众擎|EngineAI|赵同阳/ => 众擎机器人
+# ==================== 二、经济 ====================
 
-/黑神话|冯骥/ => 黑神话悟空
+[宏观经济]
+经济危机
+crisis económica
+economic crisis
+通胀
+inflación
+inflation
+物价上涨
+aumento de precios
+price hike
+美元化
+dolarización
+dollarization
+外汇
+divisas
+foreign exchange
+汇率
+tipo de cambio
+exchange rate
+货币贬值
+devaluación
+devaluation
+债务
+deuda
+debt
+贫困
+pobreza
+poverty
+失业
+desempleo
+unemployment
+GDP
+PIB
+经济增长
+crecimiento económico
+economic growth
+衰退
+recesión
+recession
+国际货币基金组织
+FMI
+IMF
+世界银行
+Banco Mundial
+World Bank
+石油价格
+precio del petróleo
+oil price
+大宗商品
+materias primas
+commodities
+出口
+exportación
+export
+进口
+importación
+import
+贸易
+comercio
+trade
+关税
+arancel
+tariff
+中国投资
+inversión china
+Chinese investment
 
-/影之刃零|梁其伟/ => 影之刃零
+[金融与商业]
+银行
+banco
+bank
+利率
+tasa de interés
+interest rate
+信贷
+crédito
+credit
+股市
+bolsa de valores
+stock market
+加密货币
+criptomoneda
+cryptocurrency
+比特币
+bitcoin
+汇款
+remesa
+remittance
+营商环境
+entorno empresarial
+business environment
+外资
+inversión extranjera
+foreign investment
+矿业
+minería
+mining
+石油行业
+sector petrolero
+oil sector
+农业
+agricultura
+agriculture
+制造业
+manufactura
+manufacturing
+服务业
+servicios
+services
 
-/三体|流浪地球|刘慈欣|郭帆/ => 三体/流浪地球
+# ==================== 三、汽车动态（竞品监测） ====================
 
-申奥
+[汽车产业与市场]
+汽车
+automóvil
+auto
+vehicles
+新车
+nuevo vehículo
+new car
+上市
+lanzamiento
+launch
+售价
+precio
+price
+经销商
+concesionario
+dealer
+销量
+ventas
+sales
+市场份额
+cuota de mercado
+market share
+进口车
+auto importado
+imported car
+本地组装
+ensamblaje local
+local assembly
+关税
+arancel
+tariff
+二手车
+auto usado
+used car
+电动
+eléctrico
+electric
+新能源
+energía nueva
+new energy
+混动
+híbrido
+hybrid
+充电桩
+cargador
+charging station
+行业
+industria
+industry
+汽车市场
+mercado automotor
+automotive market
 
-/京东|刘强东|\bJD\b|\bJingdong\b/ => 京东
+[品牌与竞品（中国品牌）]
+比亚迪
+BYD
+奇瑞
+Chery
+长安
+Changan
+江淮
+JAC
+吉利
+Geely
+长城
+Great Wall
+名爵
+MG
+上汽
+SAIC
+东风
+Dongfeng
+福田
+Foton
+宇通
+Yutong
+金龙
+King Long
+江淮汽车
+JAC Motors
+蔚来
+NIO
+小鹏
+XPeng
+理想
+Li Auto
+哪吒
+Neta
+零跑
+Leapmotor
 
-/字节|张一鸣|梁汝波|抖音|\bByteDance\b|\bTikTok\b|\bDouyin\b|\bLark\b|\bCapCut\b/ => 字节跳动
+[品牌与竞品（日韩品牌）]
+丰田
+Toyota
+本田
+Honda
+日产
+Nissan
+马自达
+Mazda
+三菱
+Mitsubishi
+铃木
+Suzuki
+五十铃
+Isuzu
+现代
+Hyundai
+起亚
+Kia
+双龙
+SsangYong
 
-/腾讯|鹅厂|马化腾|微信|QQ|天美|阅文集团|微众银行|\bTencent\b|\bPony Ma\b|\bWeChat\b|\bLightSpeed\b|\bWeBank\b/ => 腾讯
+[品牌与竞品（欧美品牌）]
+福特
+Ford
+雪佛兰
+Chevrolet
+通用
+General Motors
+大众
+Volkswagen
+宝马
+BMW
+奔驰
+Mercedes-Benz
+奥迪
+Audi
+沃尔沃
+Volvo
+雷诺
+Renault
+标致
+Peugeot
+雪铁龙
+Citroën
+菲亚特
+Fiat
+吉普
+Jeep
+特斯拉
+Tesla
 
-/qwen|minimax|glm/ => 国产开源模型
+[市场活动]
+促销
+promoción
+promotion
+优惠
+descuento
+discount
+折扣
+rebaja
+rebate
+降价
+reducción de precio
+price cut
+发布会
+conferencia de prensa
+press conference
+车展
+salón del automóvil
+auto show
+试驾
+prueba de manejo
+test drive
+活动
+evento
+event
+广告
+publicidad
+advertisement
+赞助
+patrocinio
+sponsorship
+经销商网络
+red de concesionarios
+dealer network
+售后服务
+servicio postventa
+after-sales service
+保修
+garantía
+warranty
+金融方案
+financiamiento
+financing
 
-/特斯拉|马斯克|\bTesla\b|\bElon Musk\b|\bCybertruck\b|\bModel 3\b|\bModel Y\b|\bModel S\b|\bModel X\b|\bFSD\b/ => 特斯拉
+# ==================== 四、用户声音 ====================
 
-/英伟达|黄仁勋|\bNVIDIA\b|\bGeForce\b|\bRTX\b|\bCUDA\b|\bJensen Huang\b/ => 英伟达
-/苏姿丰|锐龙|霄龙|\bAMD\b|\bRyzen\b|\bEPYC\b|\bRadeon\b|\bLisa Su\b/ => AMD
+[消费者反馈]
+评论
+comentario
+comment
+测评
+reseña
+review
+口碑
+reputación
+reputation
+评价
+opinión
+rating
+用户
+usuario
+user
+车主
+propietario
+owner
+消费者
+consumidor
+consumer
+论坛
+foro
+forum
+社交媒体
+redes sociales
+social media
+推荐
+recomendar
+recommend
+不推荐
+no recomendar
+not recommend
+满意
+satisfecho
+satisfied
+不满意
+insatisfecho
+dissatisfied
 
-/微软|\bMicrosoft\b|\bWindows\b|\bAzure\b|\bSatya Nadella\b|\bCopilot\b/ => 微软
-/谷歌|皮查伊|安卓|油管|\bGoogle\b|\bAlphabet\b|\bAndroid\b|\bChrome\b|\bYouTube\b|\bGemini\b|\bDeepMind\b|\bWaymo\b/ => 谷歌
-/库克|\biPhone\b|\biPad\b|\bMacBook\b|\biOS\b|\bVision Pro\b|\bAirPods\b|\bApple\b|\bTim Cook\b/ => 苹果
+[质量问题]
+问题
+problema
+problem
+故障
+falla
+failure
+缺陷
+defecto
+defect
+召回
+llamado a revisión
+recall
+维修
+reparación
+repair
+售后
+postventa
+after-sales
+投诉
+queja
+complaint
+维权
+defensa de derechos
+rights protection
+保修
+garantía
+warranty
+配件
+repuesto
+spare part
+维修费
+costo de reparación
+repair cost
+安全
+seguridad
+safety
+刹车
+freno
+brake
+电池
+batería
+battery
+电机
+motor eléctrico
+electric motor
+漏油
+fuga de aceite
+oil leak
+异响
+ruido anormal
+abnormal noise
 
-/\bOpenAI\b|\bChatGPT\b|\bSora\b|\bDALL-E\b|\bSam Altman\b|\bGreg Brockman\b/ => OpenAI
-/\bAnthropic\b|\bClaude\b|\bDario Amodei\b/ => Claude
-
-
-# ═══════════════════════════════════════════════════════════════
-#                         国家与地区
-# ═══════════════════════════════════════════════════════════════
-
-[中国]
-国产
-中国
-
-[东亚]
-日本
-朝鲜
-韩国
-
-[北美]
-美国
-加拿大
-
-[西欧]
-法国
-英国
-
-/俄罗斯|俄国/ => 俄罗斯
-
-印度
-
-
-# ═══════════════════════════════════════════════════════════════
-#                         科技领域
-# ═══════════════════════════════════════════════════════════════
-
-[AI 相关]
-/(?<![a-zA-Z])ai(?![a-zA-Z])/
-人工智能
-
-[芯片]
-芯片
-光刻机
-半导体
-
-/水电|雅鲁藏布江/ => 水电
-/光伏|太阳能/ => 光伏
-核能
-能源
-
-/自动驾驶|无人驾驶|智驾/ => 自动驾驶
-
-机器人
-/机械狗|四足/ => 机器狗
-具身智能
-
-/月球|登月|火星|宇宙|飞船|航天|空间站|卫星/ => 航天
-
-# 前沿科技
-量子
-脑机
-基因
-
-# 产业政策
-生产力
+[购买意向]
+想买
+quiero comprar
+want to buy
+值得买
+vale la pena
+worth buying
+性价比
+relación calidad-precio
+value for money
+价格
+precio
+price
+推荐车型
+modelo recomendado
+recommended model
+询问
+pregunta
+inquiry
+对比
+comparación
+comparison
+犹豫
+duda
+hesitation
+放弃
+abandonar
+give up
+等待
+esperar
+wait
+观望
+esperar y ver
+wait and see
