@@ -1,701 +1,184 @@
-# TrendRadar 关键词配置文件
-# 推送中南美政治/经济/汽车/用户声音相关新闻
-# 中文 + 西班牙语 + 英语 三语版
-# 聚焦地区：加勒比、委内瑞拉、哥伦比亚、秘鲁、厄瓜多尔
+# TrendRadar 关键词词频文件 — 长城汽车(GWM)拉美情报系统
+# 每行一个关键词或短语，AI筛选时用于辅助匹配
 
-[GLOBAL_FILTER]
-!广告
-!营销
-!推广
-!商城
-!红包
-!美女
-!明星
-!八卦
-!娱乐
-!体育
-!足球
-!篮球
-!游戏
-!综艺
-!色情
-!赌博
-
-[WORD_GROUPS]
-
-# ==================== 一、政治 ====================
-
-[委内瑞拉政治]
-委内瑞拉
-Venezuela
-马杜罗
-Maduro
-瓜伊多
-Guaidó
-委内瑞拉危机
-crisis en Venezuela
-Venezuela crisis
-查韦斯
-Chávez
-国民议会
-Asamblea Nacional
-National Assembly
-制宪大会
-Constituyente
-反对派
-oposición
-opposition
-临时总统
-presidente interino
-interim president
-尼古拉斯
-Nicolás
-德尔西
-Delcy
-罗德里格斯
-Rodríguez
-卡贝略
-Cabello
-Tareck
-米拉弗洛雷斯
-Miraflores
-加拉加斯
-Caracas
-马拉开波
-Maracaibo
-玻利瓦尔
-Bolívar
-PDVSA
-石油币
-petro
-crypto
-制裁
-sanciones
-sanctions
-选举
-elección
-election
-政权
-régimen
-regime
-
-[哥伦比亚政治]
-哥伦比亚
-Colombia
-佩特罗
-Petro
-哥伦比亚总统
-presidente de Colombia
-杜克
-Duque
-乌里韦
-Uribe
-桑托斯
-Santos
-ELN
-FARC
-哥武
-抗议
-protesta
-土地改革
-reforma agraria
-land reform
-波哥大
-Bogotá
-麦德林
-Medellín
-卡利
-Cali
-和平协议
-acuerdo de paz
-peace agreement
-游击队
-guerrilla
-paramilitares
-准军事组织
-贩毒
-narcotráfico
-drug trafficking
-
-[秘鲁政治]
-秘鲁
-Perú
-Peru
-博卢阿特
-Boluarte
-秘鲁总统
-presidenta de Perú
-卡斯蒂略
-Castillo
-藤森
-Fujimori
-国会
-Congreso
-Congress
-利马
-Lima
-库斯科
-Cusco
-政治危机
-crisis política
-political crisis
-弹劾
-juicio político
-impeachment
-解散国会
-disolución del Congreso
-dissolution of Congress
-抗议
-manifestación
-demonstration
-玻利瓦尔
-Bolívar
-
-[厄瓜多尔政治]
-厄瓜多尔
-Ecuador
-拉索
-Lasso
-诺沃亚
-Noboa
-厄瓜多尔总统
-presidente de Ecuador
-科雷亚
-Correa
-莫雷诺
-Moreno
-基多
-Quito
-瓜亚基尔
-Guayaquil
-国民代表大会
-Asamblea Nacional
-安全危机
-crisis de seguridad
-security crisis
-监狱暴动
-motines carcelarios
-prison riots
-黑帮
-pandillas
-gangs
-武装部队
-fuerzas armadas
-armed forces
-
-[加勒比政治]
-加勒比
-Caribe
-Caribbean
-CARICOM
-加共体
-海地
-Haití
-Haiti
-太子港
-Puerto Príncipe
-Port-au-Prince
-古巴
-Cuba
-哈瓦那
-La Habana
-多米尼加
-República Dominicana
-牙买加
-Jamaica
-特立尼达
-Trinidad
-巴哈马
-Bahamas
-拿骚
-Nassau
-飓风
-huracán
-hurricane
-地震
-terremoto
-earthquake
-殖民
-colonial
-independencia
-independence
-援助
-ayuda
-aid
-联合国维和
-ONU paz
-UN peacekeeping
-
-[区域政治组织]
-拉美
-América Latina
-Latin America
-南美
-Sudamérica
-South America
-中美洲
-Centroamérica
-Central America
-美洲国家组织
-OEA
-OAS
-拉共体
-CELAC
-南共市
-Mercosur
-太平洋联盟
-Alianza del Pacífico
-金砖
-BRICS
-中国-拉美
-China-América Latina
-中拉关系
-relaciones China-Latinoamérica
-一带一路
-Belt and Road
-Franja y Ruta
-美国-拉美
-EE.UU.-América Latina
-US-Latin America
-欧盟-拉美
-UE-América Latina
-EU-LAC
-联合国
-ONU
-UN
-美洲开发银行
-BID
-IDB
-
-# ==================== 二、经济 ====================
-
-[宏观经济]
-经济危机
-crisis económica
-economic crisis
-通胀
-inflación
-inflation
-物价上涨
-aumento de precios
-price hike
-美元化
-dolarización
-dollarization
-外汇
-divisas
-foreign exchange
-汇率
-tipo de cambio
-exchange rate
-货币贬值
-devaluación
-devaluation
-债务
-deuda
-debt
-贫困
-pobreza
-poverty
-失业
-desempleo
-unemployment
-GDP
-PIB
-经济增长
-crecimiento económico
-economic growth
-衰退
-recesión
-recession
-国际货币基金组织
-FMI
-IMF
-世界银行
-Banco Mundial
-World Bank
-石油价格
-precio del petróleo
-oil price
-大宗商品
-materias primas
-commodities
-出口
-exportación
-export
-进口
-importación
-import
-贸易
-comercio
-trade
-关税
-arancel
-tariff
-中国投资
-inversión china
-Chinese investment
-
-[金融与商业]
-银行
-banco
-bank
-利率
-tasa de interés
-interest rate
-信贷
-crédito
-credit
-股市
-bolsa de valores
-stock market
-加密货币
-criptomoneda
-cryptocurrency
-比特币
-bitcoin
-汇款
-remesa
-remittance
-营商环境
-entorno empresarial
-business environment
-外资
-inversión extranjera
-foreign investment
-矿业
-minería
-mining
-石油行业
-sector petrolero
-oil sector
-农业
-agricultura
-agriculture
-制造业
-manufactura
-manufacturing
-服务业
-servicios
-services
-
-# ==================== 三、汽车动态（竞品监测） ====================
-
-[汽车产业与市场]
-汽车
-automóvil
-auto
-vehicles
-新车
-nuevo vehículo
-new car
-上市
-lanzamiento
-launch
-售价
-precio
-price
-经销商
-concesionario
-dealer
-销量
-ventas
-sales
-市场份额
-cuota de mercado
-market share
-进口车
-auto importado
-imported car
-本地组装
-ensamblaje local
-local assembly
-关税
-arancel
-tariff
-二手车
-auto usado
-used car
-电动
-eléctrico
-electric
-新能源
-energía nueva
-new energy
-混动
-híbrido
-hybrid
-充电桩
-cargador
-charging station
-行业
-industria
-industry
-汽车市场
-mercado automotor
-automotive market
-
-[品牌与竞品（中国品牌）]
-比亚迪
-BYD
-奇瑞
-Chery
-长安
-Changan
-江淮
-JAC
-吉利
-Geely
-长城
+# === GWM品牌矩阵 ===
 Great Wall
-名爵
+GWM
+Haval
+Tank
+Ora
+Wey
+POER
+哈弗
+坦克
+魏牌
+欧拉
+长城汽车
+
+# === 中国竞品 ===
+BYD
+Chery
 MG
-上汽
-SAIC
-东风
+JAC
+Geely
+Changan
+BAIC
+FAW
 Dongfeng
-福田
 Foton
-宇通
-Yutong
-金龙
-King Long
-江淮汽车
-JAC Motors
-蔚来
-NIO
-小鹏
+Sinotruk
+Zeekr
 XPeng
-理想
-Li Auto
-哪吒
-Neta
-零跑
-Leapmotor
+NIO
+Deepal
+Jetour
+捷途
+奇瑞
+比亚迪
+吉利
+长安
 
-[品牌与竞品（日韩品牌）]
-丰田
+# === 传统竞品 ===
 Toyota
-本田
-Honda
-日产
-Nissan
-马自达
-Mazda
-三菱
-Mitsubishi
-铃木
-Suzuki
-五十铃
-Isuzu
-现代
 Hyundai
-起亚
 Kia
-双龙
-SsangYong
-
-[品牌与竞品（欧美品牌）]
-福特
-Ford
-雪佛兰
 Chevrolet
-通用
-General Motors
-大众
-Volkswagen
-宝马
-BMW
-奔驰
-Mercedes-Benz
-奥迪
-Audi
-沃尔沃
-Volvo
-雷诺
 Renault
-标致
-Peugeot
-雪铁龙
-Citroën
-菲亚特
-Fiat
-吉普
-Jeep
-特斯拉
+Nissan
 Tesla
+Ford
+Volkswagen
+Suzuki
+Mazda
+Isuzu
+Mitsubishi
+Honda
+BMW
+Mercedes
 
-[市场活动]
-促销
-promoción
-promotion
-优惠
-descuento
-discount
-折扣
-rebaja
-rebate
-降价
-reducción de precio
-price cut
-发布会
-conferencia de prensa
-press conference
-车展
-salón del automóvil
-auto show
-试驾
-prueba de manejo
-test drive
-活动
-evento
-event
-广告
-publicidad
-advertisement
-赞助
-patrocinio
-sponsorship
-经销商网络
-red de concesionarios
-dealer network
-售后服务
-servicio postventa
-after-sales service
-保修
-garantía
-warranty
-金融方案
-financiamiento
-financing
+# === 政治关键词 ===
+sanciones
+aranceles
+tarifas
+gobierno
+elecciones
+presidencial
+congreso
+constitución
+política
+reforma
+decreto
+ministro
+exportación
+importación
+inversión extranjera
+Belt and Road
+一带一路
+制裁
+关税
+选举
 
-# ==================== 四、用户声音 ====================
+# === 经济关键词 ===
+inflación
+PIB
+GDP
+tipo de cambio
+tasa de interés
+crédito
+banca central
+Banco Central
+reserva
+devaluación
+dólar
+petróleo
+crudo
+OPEP
+comercio
+inversión
+empleo
+通货膨胀
+汇率
+利率
+信贷
 
-[消费者反馈]
-评论
-comentario
-comment
-测评
-reseña
-review
-口碑
-reputación
-reputation
-评价
-opinión
-rating
-用户
-usuario
-user
-车主
-propietario
-owner
-消费者
-consumidor
-consumer
-论坛
-foro
-forum
-社交媒体
-redes sociales
-social media
-推荐
-recomendar
-recommend
-不推荐
-no recomendar
-not recommend
-满意
-satisfecho
-satisfied
-不满意
-insatisfecho
-dissatisfied
-
-[质量问题]
-问题
-problema
-problem
-故障
-falla
-failure
-缺陷
-defecto
-defect
-召回
-llamado a revisión
-recall
-维修
-reparación
-repair
-售后
-postventa
-after-sales
-投诉
-queja
-complaint
-维权
-defensa de derechos
-rights protection
-保修
-garantía
-warranty
-配件
-repuesto
-spare part
-维修费
-costo de reparación
-repair cost
-安全
-seguridad
-safety
-刹车
-freno
-brake
-电池
-batería
-battery
-电机
-motor eléctrico
-electric motor
-漏油
-fuga de aceite
-oil leak
-异响
-ruido anormal
-abnormal noise
-
-[购买意向]
-想买
-quiero comprar
-want to buy
-值得买
-vale la pena
-worth buying
-性价比
-relación calidad-precio
-value for money
-价格
+# === 汽车行业关键词 ===
+automotriz
+vehículo
+auto
+carro
+camioneta
+SUV
+eléctrico
+híbrido
+EV
+enchufable
+motor
+combustible
+ensamblaje
+CKD
+concesionario
+ventas
+matrícula
+marca
+modelo
+lanzamiento
 precio
-price
-推荐车型
-modelo recomendado
-recommended model
-询问
-pregunta
-inquiry
-对比
-comparación
-comparison
-犹豫
-duda
-hesitation
-放弃
-abandonar
-give up
-等待
-esperar
-wait
-观望
-esperar y ver
-wait and see
+promoción
+oferta
+feria
+Autoshow
+Automundo
+test drive
+car review
+电动车
+混合动力
+销量
+车展
+售价
+促销
+
+# === 行业协会 ===
+AEADE
+ANDEMOS
+AAP
+CAVENEZ
+Cinae
+ANDI
+Fenalco
+
+# === 国家/地区标识 ===
+Venezuela
+Colombia
+Perú
+Ecuador
+Caribbean
+Jamaica
+Trinidad
+Barbados
+Caracas
+Bogotá
+Lima
+Quito
+Guayaquil
+Medellín
+委内瑞拉
+哥伦比亚
+秘鲁
+厄瓜多尔
+加勒比
+
+# === 用户声音关键词 ===
+queja
+reclamo
+garantía
+repuestos
+servicio
+aftermarket
+satisfacción
+encuesta
+review
+opinión
+投诉
+售后
+备件
+满意度
