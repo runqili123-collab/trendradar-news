@@ -1,4 +1,38 @@
-filter.method	"ai"	"keyword"	使用关键词筛选模式
-report.mode	"daily"	"daily"	每日汇总（保持默认即可）
-crawler.enabled	true	true	保持开启
-platforms	注释/取消注释	按需调整	下面详细说明
+filter.method: "keyword"
+report.mode: "daily"
+crawler.enabled: true
+
+platforms:
+  # 加勒比地区
+  - url: "https://cananewsonline.com"
+  - url: "https://www.jamaicaobserver.com"
+  - url: "https://jis.gov.jm"
+  - url: "https://newsday.co.tt"
+  - url: "https://nationnews.com"
+  - url: "https://listindiario.com"
+  - url: "https://www.haitilibre.com/en/"
+  
+  # 委内瑞拉
+  - url: "https://www.hyundaivenezuela.com"
+  - url: "https://www.kia.com/ve"
+  - url: "https://www.eluniversal.com"
+  
+  # 哥伦比亚
+  - url: "https://www.valoraanalitik.com"
+  - url: "https://www.elcarrocolombiano.com"
+  - url: "https://www.eltiempo.com/motor"
+  - url: "https://andemos.org"
+  
+  # 秘鲁
+  - url: "https://www.neoauto.com"
+  - url: "https://elcomercio.pe"
+  - url: "https://www.aap.org.pe"
+  
+  # 厄瓜多尔
+  - url: "https://www.eluniverso.com"
+  - url: "https://www.cinae.org"
+  - url: "https://www.elciudadano.gob.ec"
+  
+  # 综合性平台
+  - url: "https://www.gasgoo.com"
+  - url: "https://www.jato.com"
