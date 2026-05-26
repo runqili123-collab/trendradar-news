@@ -1,1 +1,402 @@
-platforms: []
+# ═══════════════════════════════════════════════════════════════
+# TrendRadar 配置文件 — 长城汽车(GWM)拉美情报系统
+# 覆盖: 加勒比 / 委内瑞拉 / 哥伦比亚 / 秘鲁 / 厄瓜多尔
+# 推送: 钉钉机器人
+# ═══════════════════════════════════════════════════════════════
+
+# ===============================================================
+# 1. 基础设置
+# ===============================================================
+app:
+  timezone: "America/Bogota"    # 哥伦比亚时区 UTC-5，覆盖大部分目标区域
+  show_version_update: false
+
+# ===============================================================
+# 1.5 调度系统
+# ===============================================================
+schedule:
+  enabled: true
+  preset: "morning_evening"     # 早间+晚间各推送一次
+
+# ===============================================================
+# 2. 数据源 - 热榜平台（精简，仅保留与拉美汽车行业相关的中文源）
+# ===============================================================
+platforms:
+  enabled: true
+  sources:
+    - id: "wallstreetcn-hot"
+      name: "华尔街见闻"
+    - id: "cls-hot"
+      name: "财联社热门"
+    - id: "baidu"
+      name: "百度热搜"
+    - id: "toutiao"
+      name: "今日头条"
+    - id: "thepaper"
+      name: "澎湃新闻"
+    - id: "weibo"
+      name: "微博"
+    - id: "zhihu"
+      name: "知乎"
+    - id: "bilibili-hot-search"
+      name: "bilibili热搜"
+
+# ===============================================================
+# 3. 数据源 - RSS 订阅
+# ===============================================================
+rss:
+  enabled: true
+  freshness_filter:
+    enabled: true
+    max_age_days: 3
+  feeds:
+    # ==================== 加勒比地区 ====================
+    # 综合媒体
+    - id: "jamaica-gleaner"
+      name: "Jamaica Gleaner"
+      url: "https://jamaica-gleaner.com/feed"
+      enabled: true
+    - id: "jamaica-observer"
+      name: "Jamaica Observer"
+      url: "https://www.jamaicaobserver.com/feed"
+      enabled: true
+    - id: "trinidad-newsday"
+      name: "Trinidad & Tobago Newsday"
+      url: "https://newsday.co.tt/feed/"
+      enabled: true
+    - id: "nationnews"
+      name: "Nation News Barbados"
+      url: "https://nationnews.com/feed"
+      enabled: true
+    - id: "caribbean-news-now"
+      name: "Caribbean News Now"
+      url: "https://thecaribbeannewsnow.com/feed"
+      enabled: true
+    - id: "jamaica-star"
+      name: "Jamaica Star"
+      url: "https://jamaica-star.com/feed/news.xml"
+      enabled: true
+    - id: "caribbean-journal"
+      name: "Caribbean Journal"
+      url: "https://www.caribjournal.com/feed"
+      enabled: true
+
+    # ==================== 委内瑞拉 ====================
+    # 独立/反对派媒体
+    - id: "el-nacional-ve"
+      name: "El Nacional (独立)"
+      url: "https://elnacional.com/feed"
+      enabled: true
+    - id: "efecto-cocuyo"
+      name: "Efecto Cocuyo (独立/事实核查)"
+      url: "https://efectococuyo.com/feed"
+      enabled: true
+    - id: "caracas-chronicles"
+      name: "Caracas Chronicles (独立分析)"
+      url: "https://caracaschronicles.com/feed"
+      enabled: true
+    - id: "el-diario-ve"
+      name: "El Diario (独立)"
+      url: "https://eldiario.com/feed"
+      enabled: true
+    # 亲政府/官方媒体
+    - id: "ultimas-noticias"
+      name: "Ultimas Noticias (亲政府)"
+      url: "https://ultimasnoticias.com.ve/feed"
+      enabled: true
+    - id: "correo-del-orinoco"
+      name: "Correo del Orinoco (官方)"
+      url: "https://correodelorinoco.gob.ve/feed"
+      enabled: true
+    - id: "caraota-digital"
+      name: "Caraota Digital (亲政府)"
+      url: "https://caraotadigital.net/feed"
+      enabled: true
+    # 委内瑞拉综合
+    - id: "la-voz-ve"
+      name: "La Voz (综合)"
+      url: "https://diariolavoz.net/feed"
+      enabled: true
+
+    # ==================== 哥伦比亚 ====================
+    - id: "el-tiempo-co"
+      name: "El Tiempo (综合)"
+      url: "https://eltiempo.com/rss/colombia.xml"
+      enabled: true
+    - id: "el-espectador"
+      name: "El Espectador (独立)"
+      url: "https://www.elespectador.com/rss"
+      enabled: true
+    - id: "portafolio-co"
+      name: "Portafolio (财经)"
+      url: "https://www.portafolio.co/rss"
+      enabled: true
+    - id: "la-republica-co"
+      name: "La Republica Colombia (财经)"
+      url: "https://www.larepublica.co/rss"
+      enabled: true
+    - id: "valora-analitik"
+      name: "Valora Analitik (财经/汽车)"
+      url: "https://www.valoraanalitik.com/feed"
+      enabled: true
+    - id: "el-carro-colombiano"
+      name: "El Carro Colombiano (汽车垂直)"
+      url: "https://www.elcarrocolombiano.com/feed"
+      enabled: true
+    - id: "bogota-post"
+      name: "The Bogota Post (英文)"
+      url: "https://thebogotapost.com/feed"
+      enabled: true
+
+    # ==================== 秘鲁 ====================
+    - id: "el-comercio-pe"
+      name: "El Comercio Peru (综合)"
+      url: "https://elcomercio.pe/rss"
+      enabled: true
+    - id: "gestion-pe"
+      name: "Gestion (财经)"
+      url: "https://gestion.pe/rss"
+      enabled: true
+    - id: "la-republica-pe"
+      name: "La Republica Peru (综合)"
+      url: "https://larepublica.pe/rss/politica.xml"
+      enabled: true
+    - id: "peru21"
+      name: "Peru21 (综合)"
+      url: "https://peru21.pe/rss"
+      enabled: true
+    - id: "diario-correo"
+      name: "Diario Correo (综合)"
+      url: "https://diariocorreo.pe/rss"
+      enabled: true
+    - id: "andina"
+      name: "Andina (官方通讯社)"
+      url: "https://andina.pe/rss"
+      enabled: true
+
+    # ==================== 厄瓜多尔 ====================
+    - id: "el-universo-ec"
+      name: "El Universo (独立)"
+      url: "https://www.eluniverso.com/rss"
+      enabled: true
+    - id: "el-comercio-ec"
+      name: "El Comercio Ecuador (综合)"
+      url: "https://www.elcomercio.com/rss"
+      enabled: true
+    - id: "primicias-ec"
+      name: "Primicias (独立)"
+      url: "https://www.primicias.ec/feed"
+      enabled: true
+    - id: "forbes-ecuador"
+      name: "Forbes Ecuador (财经/汽车)"
+      url: "https://www.forbes.com.ec/feed"
+      enabled: true
+    - id: "el-telegrafo-ec"
+      name: "El Telegrafo (官方)"
+      url: "https://www.eltelegrafo.com.ec/feed"
+      enabled: true
+    - id: "metro-ecuador"
+      name: "Metro Ecuador (综合)"
+      url: "https://www.metroecuador.com.ec/feed"
+      enabled: true
+
+    # ==================== 拉美汽车垂直/行业 ====================
+    - id: "autocosmos-news"
+      name: "Autocosmos Noticias (拉美汽车)"
+      url: "https://noticias.autocosmos.com.co/rss"
+      enabled: true
+    - id: "focus2move"
+      name: "Focus2Move (拉美汽车数据)"
+      url: "https://www.focus2move.com/feed"
+      enabled: true
+    - id: "latam-mobility"
+      name: "Latam Mobility (电动出行)"
+      url: "https://latamobility.com/feed"
+      enabled: true
+    - id: "mobility-portal-latam"
+      name: "Mobility Portal Latam (充电/电动)"
+      url: "https://mobilityportal.lat/feed"
+      enabled: true
+
+    # ==================== 区域智库/英文观察 ====================
+    - id: "wola"
+      name: "WOLA (拉美人权/政策)"
+      url: "https://www.wola.org/feed"
+      enabled: true
+    - id: "dialogo-americas"
+      name: "Dialogo Americas (安全/政策)"
+      url: "https://dialogo-americas.com/feed"
+      enabled: true
+
+# ===============================================================
+# 4. 报告模式
+# ===============================================================
+report:
+  mode: "daily"
+  display_mode: "keyword"
+  sort_by_position_first: false
+  rank_threshold: 5
+  max_news_per_keyword: 0
+
+# ===============================================================
+# 4.5 筛选策略
+# ===============================================================
+filter:
+  method: "ai"
+  priority_sort_enabled: true
+
+# ===============================================================
+# 4.6 AI 智能筛选配置
+# ===============================================================
+ai_filter:
+  batch_size: 200
+  batch_interval: 2
+  min_score: 0.6            # 拉美新闻量相对少，降低阈值避免漏筛
+  reclassify_threshold: 0.6
+
+# ===============================================================
+# 5. 推送内容控制
+# ===============================================================
+display:
+  region_order:
+    - new_items
+    - hotlist
+    - rss
+    - standalone
+    - ai_analysis
+  regions:
+    hotlist: true
+    new_items: false
+    rss: true
+    standalone: true
+    ai_analysis: true
+  standalone:
+    platforms: ["wallstreetcn-hot", "cls-hot"]
+    rss_feeds: ["autocosmos-news", "focus2move", "latam-mobility", "mobility-portal-latam"]
+    max_items: 20
+
+# ===============================================================
+# 6. 推送通知 — 钉钉
+# ===============================================================
+notification:
+  enabled: true
+  channels:
+    feishu:
+      webhook_url: ""
+    dingtalk:
+      webhook_url: ""        # 在 GitHub Secrets 中配置 DINGTALK_WEBHOOK_URL
+    wework:
+      webhook_url: ""
+    telegram:
+      bot_token: ""
+      chat_id: ""
+    email:
+      from: ""
+      password: ""
+      to: ""
+      smtp_server: ""
+      smtp_port: ""
+    ntfy:
+      server_url: "https://ntfy.sh"
+      topic: ""
+      token: ""
+    bark:
+      url: ""
+    slack:
+      webhook_url: ""
+    generic_webhook:
+      webhook_url: ""
+      payload_template: ""
+
+# ===============================================================
+# 7. 存储配置
+# ===============================================================
+storage:
+  backend: "auto"
+  formats:
+    sqlite: true
+    txt: false
+    html: true
+  local:
+    data_dir: "output"
+    retention_days: 0
+  remote:
+    retention_days: 0
+    endpoint_url: ""
+    bucket_name: ""
+    access_key_id: ""
+    secret_access_key: ""
+    region: ""
+  pull:
+    enabled: false
+    days: 7
+
+# ===============================================================
+# 8. AI 模型配置
+# ===============================================================
+ai:
+  model: "deepseek/deepseek-v4-flash"
+  api_key: ""                # 在 GitHub Secrets 中配置 AI_API_KEY
+  api_base: ""
+  timeout: 120
+  temperature: 1.0
+  max_tokens: 5000
+  num_retries: 1
+  fallback_models: []
+
+# ===============================================================
+# 9. AI 分析功能
+# ===============================================================
+ai_analysis:
+  enabled: true
+  language: "Chinese"
+  prompt_file: "ai_analysis_prompt.txt"
+  mode: "follow_report"
+  max_news_for_analysis: 150
+  include_rss: true
+  include_standalone: true
+  include_rank_timeline: true
+
+# ===============================================================
+# 10. AI 翻译功能
+# ===============================================================
+ai_translation:
+  enabled: true
+  language: "中文"
+  prompt_file: "ai_translation_prompt.txt"
+  scope:
+    hotlist: false
+    rss: true
+    standalone: true
+
+# ===============================================================
+# 11. 高级设置
+# ===============================================================
+advanced:
+  debug: false
+  version_check_url: "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version"
+  mcp_version_check_url: "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_mcp"
+  configs_version_check_url: "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_configs"
+  crawler:
+    request_interval: 2000
+    use_proxy: false
+    default_proxy: "http://127.0.0.1:10801"
+  rss:
+    request_interval: 1000
+    timeout: 15
+    use_proxy: false
+    proxy_url: ""
+  weight:
+    rank: 0.6
+    frequency: 0.3
+    hotness: 0.1
+  max_accounts_per_channel: 3
+  batch_size:
+    default: 4000
+    dingtalk: 20000
+    feishu: 30000
+    bark: 4000
+    slack: 4000
+  batch_send_interval: 3
+  feishu_message_separator: "━━━━━━━━━━━━━━━━"
+
